@@ -12,12 +12,6 @@
             margin: 0;
         }
 
-        #show-image-button {
-            padding: 15px 20px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
         #image-container {
             display: none;
             text-align: center;
@@ -27,32 +21,49 @@
             max-width: 100%;
             max-height: 100%;
         }
+
+        #show-image-button {
+            padding: 15px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #movie-question {
+            margin-top: 10px;
+            font-size: 16px;
+        }
     </style>
-    <title>Hihi và haha</title>
+    <title>Hehe</title>
 </head>
 <body>
 
     <!-- Nút Button -->
-    <button id="show-image-button">click vào đi</button>
+    <button id="show-image-button">Click vào đây</button>
 
     <!-- Container chứa hình ảnh -->
     <div id="image-container">
-        <img src="image.webp" alt="Hình ảnh">
-        <p id="movie-question">Hi Trinh, Đi xem phim này không?</p>
+        <img id="displayedImage" src="" alt="Hình ảnh">
+        <p id="movie-question">Hi Trinh,Đi xem phim này không?</p>
     </div>
 
     <script>
-        // JavaScript để xử lý sự kiện click và hiển thị hình ảnh
-        document.getElementById('show-image-button').addEventListener('click', function() {
-            // Lấy đối tượng container chứa hình ảnh
-            var imageContainer = document.getElementById('image-container');
+        var images = [
+            "cuoi.jpg",
+            "image.webp",
+            // Add more image paths as needed
+        ];
+
+        var currentImageIndex = 0;
+        var displayedImage = document.getElementById('displayedImage');
+        var showImageButton = document.getElementById('show-image-button');
+        var imageContainer = document.getElementById('image-container');
+
+        showImageButton.addEventListener('click', function() {
+            imageContainer.style.display = 'block';
             
-            // Kiểm tra nếu container đã ẩn, thì hiển thị, ngược lại ẩn đi
-            if (imageContainer.style.display === 'none') {
-                imageContainer.style.display = 'block';
-            } else {
-                imageContainer.style.display = 'none';
-            }
+            // Display the next image in the array
+            displayedImage.src = images[currentImageIndex];
+            currentImageIndex = (currentImageIndex + 1) % images.length;
         });
     </script>
 
