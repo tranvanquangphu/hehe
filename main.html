@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #show-image-button {
+            padding: 15px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #image-container {
+            display: none;
+            text-align: center;
+        }
+
+        #image-container img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+    <title>Hihi và haha</title>
+</head>
+<body>
+
+    <!-- Nút Button -->
+    <button id="show-image-button">click vào đi</button>
+
+    <!-- Container chứa hình ảnh -->
+    <div id="image-container">
+        <img src="image.webp" alt="Hình ảnh">
+        <p id="movie-question">Hi Trinh, Đi xem phim này không?</p>
+    </div>
+
+    <script>
+        // JavaScript để xử lý sự kiện click và hiển thị hình ảnh
+        document.getElementById('show-image-button').addEventListener('click', function() {
+            // Lấy đối tượng container chứa hình ảnh
+            var imageContainer = document.getElementById('image-container');
+            
+            // Kiểm tra nếu container đã ẩn, thì hiển thị, ngược lại ẩn đi
+            if (imageContainer.style.display === 'none') {
+                imageContainer.style.display = 'block';
+            } else {
+                imageContainer.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
